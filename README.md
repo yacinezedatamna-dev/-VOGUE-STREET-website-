@@ -1,4 +1,10 @@
 # - VOGUE STREET – Fashion E-Commerce Website
+<p align="center"> <a href="https://voguestreetoff.netlify.app"> <img src="https://img.shields.io/badge/🚀%20Live%20Demo-Visit%20Website-success?style=for-the-badge" alt="Live Demo"> </a> <a href="https://github.com/ATAMNA-YACINE/VOGUE-STREET"> <img src="https://img.shields.io/badge/💻%20Source%20Code-GitHub-black?style=for-the-badge" alt="Source Code"> </a> </p>
+
+🌐 Live Demo
+
+🔗 https://voguestreetoff.netlify.app
+
 
 VOGUE STREET is a modern and fully responsive fashion e-commerce website designed to deliver a premium online shopping experience. The project features a clean and elegant interface, intuitive navigation, and a user-focused design that showcases clothing collections in a stylish and engaging way.
 
