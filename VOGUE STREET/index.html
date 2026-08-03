@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VOGUE STREET – براند ملابس عصري</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>VOGUE</span><span style="color:#B8A07C;">STREET</span>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#collection">المجموعة</a></li>
+                    <li><a href="#new">الأحدث</a></li>
+                    <li><a href="#about">عن البراند</a></li>
+                    <li><a href="#contact">اتصل</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartToggle" aria-label="فتح السلة">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="قائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">✦ تشكيلة ربيع 2026</span>
+                <h1>أناقة <span>عصرية</span> <br />لروح <span>متميزة</span></h1>
+                <p>اكتشف أحدث صيحات الموضة من VOGUE STREET، تصاميم فريدة تجمع بين الراحة والأناقة.</p>
+                <div class="hero-buttons">
+                    <a href="#collection" class="btn btn-primary">تسوق الآن</a>
+                    <a href="#about" class="btn btn-outline">تعرف علينا</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=600&fit=crop&crop=center" alt="أزياء عصرية" />
+                <div class="floating-card card-1">
+                    <i class="fas fa-star"></i>
+                    <span>4.8 <small>(2.5k)</small></span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-tags"></i>
+                    <span>خصم 20%</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 40L60 50C120 60 240 80 360 75C480 70 600 40 720 35C840 30 960 50 1080 60C1200 70 1320 70 1380 70L1440 70V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V40Z" fill="#F8F5F0" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== COLLECTION ===== -->
+    <section class="collection" id="collection">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ تشكيلتنا</span>
+                <h2>أحدث <span>المجموعات</span></h2>
+                <p>اختر من بين أحدث التصاميم التي تناسب أسلوبك</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-bar" id="filterBar">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="men">رجالي</button>
+                <button class="filter-btn" data-filter="women">نسائي</button>
+                <button class="filter-btn" data-filter="accessories">إكسسوارات</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- يتم حقن البطاقات بواسطة JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEW ARRIVALS ===== -->
+    <section class="new-arrivals" id="new">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ حديثنا</span>
+                <h2>وصل <span>حديثاً</span></h2>
+            </div>
+            <div class="new-grid" id="newGrid">
+                <!-- يتم حقنها بواسطة JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ قصتنا</span>
+                <h2>عن <span>VOGUE STREET</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-palette"></i></div>
+                    <h3>تصاميم فريدة</h3>
+                    <p>نبتكر تصاميم تعكس شخصيتك وتواكب أحدث صيحات الموضة.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>مواد مستدامة</h3>
+                    <p>نستخدم أقمشة صديقة للبيئة لراحة تدوم.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-globe-asia"></i></div>
+                    <h3>شحن عالمي</h3>
+                    <p>نوصل طلباتك إلى أي مكان في العالم بسرعة وأمان.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ تواصل</span>
+                <h2>نحن <span>بانتظارك</span></h2>
+            </div>
+            <div class="contact-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="الاسم الكامل" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="البريد الإلكتروني" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="رسالتك ..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">إرسال</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-pin"></i>
+                        <div>
+                            <h4>العنوان</h4>
+                            <p>شارع الموضة، دبي، الإمارات</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>الهاتف</h4>
+                            <p>+971 50 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>أوقات العمل</h4>
+                            <p>يومياً 9:00 صباحاً – 10:00 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo"><i class="fas fa-tshirt"></i><span>VOGUE</span><span style="color:#B8A07C;">STREET</span></div>
+                    <p>أحدث صيحات الموضة في مكان واحد. تصاميم تعبر عن هويتك.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#collection">المجموعة</a></li>
+                        <li><a href="#new">الأحدث</a></li>
+                        <li><a href="#about">عن البراند</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>خدمات</h4>
+                    <ul>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الشحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>النشرة البريدية</h4>
+                    <p>اشترك لتحصل على العروض الحصرية</p>
+                    <form>
+                        <input type="email" placeholder="بريدك الإلكتروني" />
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VOGUE STREET. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== CART SIDEBAR ===== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> سلة التسوق</h3>
+            <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">سلة فارغة، أضف قطعك المفضلة!</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary checkout-btn">إتمام الطلب</button>
+        </div>
+    </aside>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
