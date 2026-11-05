@@ -1,0 +1,14 @@
+<?php
+require_once dirname(__DIR__).'/app/init.php';require_once dirname(__DIR__).'/app/layout.php';$pdo=db();
+if($_SERVER['REQUEST_METHOD']==='POST'){verify_csrf();$action=(string)($_POST['action']??'');$id=filter_var($_POST['id']??0,FILTER_VALIDATE_INT)?:0;
+ if($action==='add'){$qty=filter_var($_POST['qty']??1,FILTER_VALIDATE_INT)?:1;$stmt=$pdo->prepare("SELECT stock FROM products WHERE id=? AND is_active=1");$stmt->execute([$id]);$p=$stmt->fetch();if(!$p||(int)$p['stock']<$qty)flash(t('low_stock'));else{$_SESSION['cart'][$id]=min(99,(int)$p['stock'],(int)($_SESSION['cart'][$id]??0)+max(1,$qty));flash(t('added'));}}
+ elseif($action==='remove'){unset($_SESSION['cart'][$id]);}
+ elseif($action==='update'){foreach(($_POST['qty']??[]) as $pid=>$quantity){if(!ctype_digit((string)$pid))continue;$n=filter_var($quantity,FILTER_VALIDATE_INT);$stmt=$pdo->prepare("SELECT stock FROM products WHERE id=? AND is_active=1");$stmt->execute([(int)$pid]);$p=$stmt->fetch();if(!$p||$n===false||$n<1)unset($_SESSION['cart'][(int)$pid]);else $_SESSION['cart'][(int)$pid]=min(99,(int)$p['stock'],$n);}}
+ go('/cart.php');}
+$items=cart_items($pdo);$total=array_sum(array_column($items,'line_total'));page_header(t('cart'));?>
+<h1 class="page-title"><?=h(t('cart'))?></h1>
+<?php if(!$items):?><div class="empty"><h2><?=h(t('empty'))?></h2><a class="btn" href="/index.php"><?=h(t('continue'))?></a></div>
+<?php else:?><div class="cart-layout"><section class="panel"><form method="post"><?=csrf_field()?><input type="hidden" name="action" value="update"><div class="table-wrap"><table><thead><tr><th><?=h(t('products'))?></th><th><?=h(t('price'))?></th><th><?=h(t('quantity'))?></th><th><?=h(t('total'))?></th><th></th></tr></thead><tbody>
+<?php foreach($items as $p):?><tr><td><div class="cart-item"><img src="<?=h($p['image_url'])?>" alt=""><b><?=h(product_name($p))?></b></div></td><td><?=h(cash($p['price']))?></td><td><input class="field qty" type="number" min="1" max="<?=(int)$p['stock']?>" name="qty[<?=(int)$p['id']?>]" value="<?=(int)$p['qty']?>"></td><td><?=h(cash($p['line_total']))?></td><td><button class="btn danger sm" type="submit" form="rm<?=(int)$p['id']?>"><?=h(t('delete'))?></button></td></tr><?php endforeach;?></tbody></table></div><button class="btn soft" style="margin-top:14px" type="submit"><?=h(t('save'))?></button></form>
+<?php foreach($items as $p):?><form id="rm<?=(int)$p['id']?>" method="post" class="hide"><?=csrf_field()?><input type="hidden" name="action" value="remove"><input type="hidden" name="id" value="<?=(int)$p['id']?>"></form><?php endforeach;?></section><aside class="panel"><h2><?=h(t('total'))?></h2><div class="summary-line"><span><?=h(t('total'))?></span><b class="summary-total"><?=h(cash($total))?></b></div><p class="muted"><?=h(t('cod'))?></p><a class="btn" href="/checkout.php"><?=h(t('checkout'))?> →</a></aside></div><?php endif;?>
+<?php page_footer();?>
